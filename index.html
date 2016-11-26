@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>NotificationBar: simple notification bar</title>
+	<meta name="viewport" content="width=device-width">
+	<script type="text/javascript" src="notificationbar.js"></script>
+	<link rel="stylesheet" type="text/css" href="notificationbar.css">
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+	<style type="text/css">
+		body{
+			font-family: 'Open Sans', sans-serif;
+		}
+	</style>
+
+</head>
+<body>
+	<ul class="ui-nb" id="nb">
+	</ul>
+
+	<button onclick="start()">start</button>
+	<button onclick="stop()">stop</button>
+
+
+	<script type="text/javascript">
+
+			function fakeTxt()
+			{
+			    return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt";
+			}
+
+			var tm = null;
+
+			function start(){
+				NotificationBar.on();
+
+				tm = setInterval(function(){
+					NotificationBar.add({Text: fakeTxt(), Type: 1, Percent: Math.random()})
+				}, 500);
+			}
+
+			function stop(){
+				NotificationBar.off();
+				clearInterval(tm)
+			}
+
+			
+			/*
+			NotificationBar.on();
+
+
+			NotificationBar.add({Text: fakeTxt(), Type: 1, Percent: Math.random()});
+			NotificationBar.add({Text: fakeTxt(), Type: 0});
+			NotificationBar.add({Text: fakeTxt(), Type: 1, Percent: Math.random()});
+			NotificationBar.add({Text: fakeTxt(), Type: 1, Percent: Math.random()});
+			NotificationBar.add({Text: fakeTxt(), Type: 2});
+			*/
+
+	</script>
+</body>
+</html>

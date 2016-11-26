@@ -1,0 +1,62 @@
+.ui-nb {
+	position: absolute;
+	top:  40px;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	width:  250px;
+	background: #fff;
+	z-index: 99;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+.ui-nb li {
+	list-style-type: none;
+	margin: 20px;
+}
+
+.ui-nb li p {
+	font-size: 10px;
+	margin: 5px 0;
+	color: #333;
+}
+
+.ui-nb progress {
+	width: 100%;
+	height: 4px;
+	display: block;
+	-webkit-appearance: none;
+	border: none;
+}
+
+.ui-nb progress::-webkit-progress-bar {
+	background: #e6e6e6;
+	border-radius: 50px;
+	box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+}
+
+.ui-nb progress::-webkit-progress-value {
+	background: #29d;
+	border-radius: 50px;
+	box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+
+	-webkit-animation: pace-spinner 400ms linear infinite;
+       -moz-animation: pace-spinner 400ms linear infinite;
+        -ms-animation: pace-spinner 400ms linear infinite;
+         -o-animation: pace-spinner 400ms linear infinite;
+            animation: pace-spinner 400ms linear infinite;
+}
+
+.ui-nb-ic {
+}
+
+.ui-nb-ic-info, .ui-nb-ic-prog {
+	color: #4CD964;
+}
+.ui-nb-ic-erro {
+	color: #ff0033;
+}
+.ui-nb li .ui-nb-tm {
+	color: #8e8e93;
+	font-size: 10px;
+}

@@ -27,7 +27,7 @@
     parent: "nb",
     onChange: function(msg, action, count){},
     info:     '<p><i class="fa fa-check ui-nb-ic ui-nb-ic-info"></i> Text </p><p class="ui-nb-tm"> tms </p>',
-    progress: '<p><i class="fa fa-check ui-nb-ic ui-nb-ic-prog"></i> Text </p><progress max="1" value="Percent"></progress><p class="ui-nb-tm"> tms </p>',
+    progress: '<p><i class="fa fa-check ui-nb-ic ui-nb-ic-prog"></i> Text </p><progress class="ui-nb-prog" max="1" value="Percent"></progress><p class="ui-nb-tm"> tms </p>',
     error:    '<p><i class="fa fa-times ui-nb-ic ui-nb-ic-erro"></i> Text </p><p class="ui-nb-tm"> tms </p>'
   };
 
@@ -65,9 +65,15 @@
 
     parent = document.getElementById(NotificationBar.config.parent);
 
-    NotificationBar.status = STATUS_TYPE.On;
+    if (parent){
 
-    return this;
+      NotificationBar.status = STATUS_TYPE.On;
+      return this;
+
+    } else {
+
+      throw "Couldn't find parent";
+    }   
   };
 
   /**
@@ -110,13 +116,16 @@
   
     var que = NotificationBar.queue,
         max = NotificationBar.config.max,
-        cur = get(que, msg);
+        idx = get(que, msg),
+        cur = que[idx];
 
     // Update
     if (cur){
       msg.uid = cur.uid; 
-      cur = msg;
-      render(cur, ACTIONS_TYPE.Update);
+      que[idx] = msg;
+      if (cur.Percent <= msg.Percent){
+        render(msg, ACTIONS_TYPE.Update);
+      }
       return;
     }
 
@@ -184,10 +193,10 @@
     var i = 0;
     for (i = 0; i < queue.length; i++) {
       if (queue[i].Id === msg.Id){
-        return queue[i];
+        return i;
       }
     }
-    return null;
+    return i;
   }
 
   /**

@@ -21,7 +21,7 @@
 	color: #333;
 }
 
-.ui-nb progress {
+.ui-nb-prog {
 	width: 100%;
 	height: 4px;
 	display: block;
@@ -29,13 +29,13 @@
 	border: none;
 }
 
-.ui-nb progress::-webkit-progress-bar {
+.ui-nb-prog::-webkit-progress-bar {
 	background: #e6e6e6;
 	border-radius: 50px;
 	box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
 }
 
-.ui-nb progress::-webkit-progress-value {
+.ui-nb-prog::-webkit-progress-value {
 	background: #29d;
 	border-radius: 50px;
 	box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);

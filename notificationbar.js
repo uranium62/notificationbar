@@ -121,9 +121,9 @@
 
     // Update
     if (cur){
-      msg.uid = cur.uid; 
-      que[idx] = msg;
       if (cur.Percent <= msg.Percent){
+        msg.uid = cur.uid; 
+        que[idx] = msg;
         render(msg, ACTIONS_TYPE.Update);
       }
       return;
